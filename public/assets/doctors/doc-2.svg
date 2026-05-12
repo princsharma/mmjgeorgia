@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Doctor portrait placeholder">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f3ec"/>
+      <stop offset="1" stop-color="#bce0c8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg2)"/>
+  <circle cx="200" cy="170" r="78" fill="#e2b893"/>
+  <path d="M150 130c0-28 22-50 50-50s50 22 50 50c0 6-2 12-4 17-22-2-44-2-66 0-12 2-18-6-22-12-6-2-8-4-8-5z" fill="#1a1410"/>
+  <path d="M120 400c10-78 50-122 80-122s70 44 80 122z" fill="#ffffff"/>
+  <rect x="120" y="396" width="160" height="6" fill="#033c3f" opacity="0.06"/>
+  <circle cx="200" cy="298" r="6" fill="#20B780"/>
+  <rect x="194" y="304" width="12" height="40" fill="#20B780" opacity="0.8" rx="2"/>
+</svg>

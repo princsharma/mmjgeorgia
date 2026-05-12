@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 48" width="170" height="48" role="img" aria-label="BBB Accredited Business">
+  <g fill="#475569" font-family="'Inter', sans-serif">
+    <rect x="6" y="14" width="28" height="20" rx="2" fill="none" stroke="#475569" stroke-width="2"/>
+    <text x="9" y="29" font-size="11" font-weight="800">BBB</text>
+    <text x="42" y="22" font-size="11" font-weight="700">ACCREDITED</text>
+    <text x="42" y="36" font-size="11" font-weight="700">BUSINESS · A+</text>
+  </g>
+</svg>

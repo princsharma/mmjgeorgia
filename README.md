@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Medical Marijuana Card Georgia
 
-## Getting Started
+Marketing website for **medicalmarijuanacardgeorgia.com** — a Georgia
+Medical Marijuana Card service. Patients with qualifying conditions are
+evaluated and approved online by Georgia-licensed physicians, then
+receive their medical marijuana card.
 
-First, run the development server:
+Part of a multi-state network that shares one brand color system (the
+parent site is Pennsylvania). Layout, typography pairing, and motion are
+deliberately different from the parent — palette is identical.
+
+## Stack
+
+- Next.js 16 (App Router, TypeScript)
+- React 19, React DOM 19
+- Tailwind CSS v4 (`@tailwindcss/postcss`)
+- `motion` (Framer Motion modern package)
+- `react-hook-form` + `zod` + `@hookform/resolvers`
+- `lucide-react`
+- `@fontsource/inter` fallback, `next/font/google` for Fraunces + Inter
+- ESLint 9 + `eslint-config-next`
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Script          | What it does                                |
+| --------------- | ------------------------------------------- |
+| `npm run dev`   | Start the dev server                        |
+| `npm run build` | Production build                            |
+| `npm run start` | Start the production server                 |
+| `npm run lint`  | Lint with ESLint                            |
 
-## Learn More
+## Project map
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — App Router pages, layout, robots, sitemap
+- `components/landing/` — Homepage sections (hero, conditions, etc.)
+- `components/motion/` — Reusable motion primitives
+- `components/header/`, `components/footer/`, `components/contact/`
+- `lib/` — SEO, form schema, utility helpers
+- `public/assets/` — SVG illustrations and placeholders
+- `types/` — Ambient type declarations (e.g. GTM dataLayer)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Accessibility
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Single `<h1>` per page; logical heading order
+- "Skip to main content" link
+- All animations respect `prefers-reduced-motion`
+- Visible emerald focus rings on every interactive element
+- Form errors announced via `aria-live="polite"`
 
-## Deploy on Vercel
+## SEO
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Metadata helper at `lib/seo.ts`
+- Five JSON-LD blocks on the homepage (MedicalOrganization, WebSite,
+  FAQPage, HowTo, MedicalBusiness w/ AggregateRating + Reviews)
+- `app/robots.ts` + `app/sitemap.ts`
+- GTM placeholder `GTM-XXXXXXXX` in `app/layout.tsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Brand
+
+Identical palette to the parent Pennsylvania site:
+
+| Token                | Value                          |
+| -------------------- | ------------------------------ |
+| `--color-accent`     | `#20B780` (emerald)            |
+| `--color-brand-dark` | `#033c3f` (deep teal)          |
+| `--color-brand-deeper` | `#002124` (deepest)          |
+
+Differentiation from the PA parent:
+
+- Centered hero (not split with form)
+- Fraunces serif paired with Inter (PA uses Inter alone)
+- Reordered sections with dedicated form band, ExpertCare dark panel,
+  horizontal pricing card, and top-down mobile menu
+- Full motion-based reveals, parallax, counters, marquee, accordion

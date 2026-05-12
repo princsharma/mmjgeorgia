@@ -1,65 +1,199 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import Hero from "@/components/landing/hero";
+import Conditions from "@/components/landing/conditions";
+import ExpertCare from "@/components/landing/expertcare";
+import Steps from "@/components/landing/steps";
+import JsonLd from "@/components/JsonLd";
+import { buildMetadata, SITE_CONFIG } from "@/lib/seo";
+import { FAQ_ITEMS } from "@/lib/faqData";
 
-export default function Home() {
+const Doctors = dynamic(() => import("@/components/landing/doctors"));
+const Stats = dynamic(() => import("@/components/landing/stats"));
+const Benefits = dynamic(() => import("@/components/landing/benefits"));
+const Pricing = dynamic(() => import("@/components/landing/pricing"));
+const Reviews = dynamic(() => import("@/components/landing/reviews"));
+const Trust = dynamic(() => import("@/components/landing/trust"));
+const StartJourney = dynamic(
+  () => import("@/components/landing/startjourney"),
+);
+const Faq = dynamic(() => import("@/components/landing/faq"));
+const SpeakWithDoc = dynamic(
+  () => import("@/components/landing/speakwithdoc"),
+);
+
+export const metadata: Metadata = buildMetadata({
+  title: "Apply Your Georgia Medical Marijuana Card Online",
+  description:
+    "Apply for your Georgia Medical Marijuana Card online with licensed doctors. HIPAA-secure telehealth, same-day evaluations, money-back guarantee if not approved.",
+  canonicalPath: "/",
+});
+
+const FOUR_REVIEWS = [
+  {
+    "@type": "Review",
+    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+    author: { "@type": "Person", name: "Janelle T." },
+    reviewBody:
+      "I had been told for years that nothing would help my intractable pain. The physician walked me through every detail of the Georgia registry, approved me the same week, and now I sleep through the night.",
+    datePublished: "2026-03-04",
+  },
+  {
+    "@type": "Review",
+    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+    author: { "@type": "Person", name: "Marcus W." },
+    reviewBody:
+      "Booking, evaluation, certification — the whole process took five days. The doctor genuinely listened and never rushed me.",
+    datePublished: "2026-02-12",
+  },
+  {
+    "@type": "Review",
+    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+    author: { "@type": "Person", name: "Priya S." },
+    reviewBody:
+      "After my MS diagnosis I felt overwhelmed. This service made getting my Georgia card simple and dignified.",
+    datePublished: "2026-01-22",
+  },
+  {
+    "@type": "Review",
+    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+    author: { "@type": "Person", name: "Devon R." },
+    reviewBody:
+      "Caring physicians, fair pricing, no hidden fees. Renewal was even easier than the first evaluation.",
+    datePublished: "2026-01-09",
+  },
+];
+
+const HOWTO_STEPS = [
+  {
+    name: "Create Your Account",
+    text: "Sign up and share basic information to begin your Georgia medical marijuana card evaluation.",
+  },
+  {
+    name: "Schedule Your Consultation",
+    text: "Choose a convenient time to meet online with a Georgia-licensed medical cannabis doctor.",
+  },
+  {
+    name: "Attend Your MMJ Evaluation",
+    text: "Meet your doctor via secure video consultation; they'll review your medical history and qualifying condition.",
+  },
+  {
+    name: "Receive Your Card",
+    text: "If approved, your physician's certification is submitted to the state, and you'll receive your Georgia Medical Marijuana Card.",
+  },
+];
+
+const medicalOrganizationLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  logo: `${SITE_CONFIG.url}/assets/logo.svg`,
+  image: `${SITE_CONFIG.url}/assets/og-homepage.svg`,
+  telephone: SITE_CONFIG.phoneTel,
+  email: SITE_CONFIG.email,
+  description: SITE_CONFIG.defaultDescription,
+  medicalSpecialty: "Medical Marijuana Certification",
+  areaServed: { "@type": "State", name: "Georgia" },
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "GA",
+    addressLocality: "Atlanta",
+    addressCountry: "US",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: SITE_CONFIG.phoneTel,
+    contactType: "patient services",
+    areaServed: "US-GA",
+    availableLanguage: ["English"],
+  },
+};
+
+const websiteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  inLanguage: "en-US",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: `${SITE_CONFIG.url}/?q={search_term_string}`,
+    },
+    "query-input": "required name=search_term_string",
+  },
+};
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
+
+const howToLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Apply for a Georgia Medical Marijuana Card",
+  description:
+    "The four-step process to receive your Georgia Medical Marijuana Card online.",
+  totalTime: "P5D",
+  estimatedCost: { "@type": "MonetaryAmount", currency: "USD", value: "149" },
+  step: HOWTO_STEPS.map((s, i) => ({
+    "@type": "HowToStep",
+    position: i + 1,
+    name: s.name,
+    text: s.text,
+  })),
+};
+
+const medicalBusinessLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: SITE_CONFIG.name,
+  url: SITE_CONFIG.url,
+  telephone: SITE_CONFIG.phoneTel,
+  priceRange: "$",
+  medicalSpecialty: "Medical Marijuana Certification",
+  areaServed: { "@type": "State", name: "Georgia" },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: FOUR_REVIEWS.length,
+    bestRating: 5,
+    worstRating: 1,
+  },
+  review: FOUR_REVIEWS,
+};
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <JsonLd id="ld-medical-org" data={medicalOrganizationLd} />
+      <JsonLd id="ld-website" data={websiteLd} />
+      <JsonLd id="ld-faq" data={faqLd} />
+      <JsonLd id="ld-howto" data={howToLd} />
+      <JsonLd id="ld-medical-business" data={medicalBusinessLd} />
+
+      <Hero />
+      <Conditions />
+      <ExpertCare />
+      <Steps />
+      <Doctors />
+      <Stats />
+      <Benefits />
+      <Pricing />
+      <Reviews />
+      <Trust />
+
+      <StartJourney />
+      <Faq />
+      <SpeakWithDoc />
+    </>
   );
 }
