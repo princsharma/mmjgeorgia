@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, ChevronDown, ShieldCheck } from "lucide-react";
 import MagneticButton from "@/components/motion/MagneticButton";
 import Parallax from "@/components/motion/Parallax";
-import Reveal from "@/components/motion/Reveal";
 import FormWrapper from "@/components/landing/formwrapper";
 
 export default function Hero() {
@@ -35,7 +34,7 @@ export default function Hero() {
 
       <Parallax
         offset={40}
-        className="pointer-events-none absolute -left-24 top-24 -z-10 h-[420px] w-[420px] md:-left-10 md:h-[520px] md:w-[520px]"
+        className="pointer-events-none absolute -left-32 top-24 -z-10 h-[420px] w-[420px] md:-left-20 md:h-[520px] md:w-[520px]"
       >
         <div className="blob-drift-a h-full w-full">
           <Image
@@ -45,7 +44,7 @@ export default function Hero() {
             priority
             role="presentation"
             aria-hidden="true"
-            className="opacity-80"
+            className="opacity-[0.08]"
           />
         </div>
       </Parallax>
@@ -61,7 +60,7 @@ export default function Hero() {
             fill
             role="presentation"
             aria-hidden="true"
-            className="opacity-60"
+            className="opacity-[0.08]"
           />
         </div>
       </Parallax>
@@ -92,9 +91,7 @@ export default function Hero() {
 
             <h1 id="hero-heading" className="display-xl">
               Apply for Your Georgia{" "}
-              <Reveal as="span" delay={0.25}>
-                <span className="accent-italic">Medical Marijuana Card</span>
-              </Reveal>{" "}
+              <span className="accent-italic">Medical Marijuana Card</span>{" "}
               Online
             </h1>
 

@@ -73,7 +73,7 @@ export default function Reviews() {
   return (
     <section
       id="reviews"
-      className="relative scroll-mt-24 py-24 md:py-32"
+      className="relative scroll-mt-24 overflow-hidden py-24 md:py-32"
       aria-labelledby="reviews-heading"
     >
       <div className="container-page">
@@ -122,13 +122,13 @@ export default function Reviews() {
           </div>
         </FadeIn>
 
-        <div className="relative mt-10">
+        <div className="relative mt-10 overflow-hidden">
           <motion.ul
             drag={reduce ? false : "x"}
-            dragConstraints={{ left: -600, right: 0 }}
+            dragConstraints={{ left: -800, right: 0 }}
             dragElastic={0.06}
             dragMomentum={false}
-            className="flex cursor-grab gap-5 active:cursor-grabbing"
+            className="flex w-max cursor-grab gap-5 active:cursor-grabbing"
           >
             {REVIEWS.map((r) => (
               <motion.li
