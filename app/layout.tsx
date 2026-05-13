@@ -11,7 +11,7 @@ import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/backtotop";
 import ScrollProgressBar from "@/components/motion/ScrollProgressBar";
 import RouteTransition from "@/components/motion/RouteTransition";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, SITE_CONFIG } from "@/lib/seo";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -28,7 +28,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const GTM_ID = "GTM-XXXXXXXX";
+const GTM_ID = SITE_CONFIG.gtmId;
 
 export const metadata: Metadata = buildMetadata();
 

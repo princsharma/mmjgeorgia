@@ -21,12 +21,14 @@ export const SITE_CONFIG = {
   locale: "en_US",
   phone: "1-844-GA-MMJRX",
   phoneTel: "+18444266675",
-  email: "support@medicalmarijuanacardgeorgia.com",
+  email: "contact@medicalmarijuanacardgeorgia.com",
   address: {
     region: "GA",
     locality: "Atlanta",
     country: "US",
   },
+  gtmId: "GTM-TPXP9L5B",
+  googleVerification: "aioePGddkulySTzukHDhzls0eU_iMi2hsYnUWPVlqXg",
 } as const;
 
 interface BuildMetadataOptions {
@@ -113,6 +115,9 @@ export function buildMetadata({
       icon: "/favicon.ico",
       shortcut: "/favicon.ico",
       apple: "/favicon.ico",
+    },
+    verification: {
+      google: SITE_CONFIG.googleVerification,
     },
     ...extra,
   };

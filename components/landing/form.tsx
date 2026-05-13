@@ -9,7 +9,6 @@ import {
   Phone,
   User,
   ChevronDown,
-  Check,
   ShieldCheck,
 } from "lucide-react";
 import {
@@ -17,7 +16,21 @@ import {
   QUALIFYING_CONDITIONS,
   type LeadFormValues,
 } from "@/lib/formSchema";
-import { sleep } from "@/lib/utils";
+
+const HEALLY_STATE = {
+  stateAbbr: "GA",
+  stateName: "Georgia",
+  city: "Atlanta",
+  timezone: "EST",
+} as const;
+
+const HEALLY_UTM_SOURCE = "medicalmarijuanacardgeorgia";
+const HEALLY_PREFILL_BASE_URL =
+  "https://mymmj.getheally.com/patient_admin/prefill";
+
+function base64UrlEncode(input: string): string {
+  return btoa(input).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
 
 interface FieldShellProps {
   label: string;
@@ -67,7 +80,6 @@ function FieldShell({
 
 export default function LeadForm() {
   const reduce = useReducedMotion();
-  const [submitted, setSubmitted] = useState(false);
   const [shake, setShake] = useState(0);
 
   const {
@@ -86,15 +98,43 @@ export default function LeadForm() {
     },
   });
 
-  const onSubmit = async (data: LeadFormValues) => {
-    await sleep(900);
-    if (typeof window !== "undefined" && Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({
-        event: "lead_form_submit",
-        condition: data.qualifyingCondition,
-      });
+  const onSubmit = (data: LeadFormValues) => {
+    const nameParts = data.fullName.trim().split(/\s+/);
+    const firstName = nameParts[0];
+    const lastName = nameParts.slice(1).join(" ") || "";
+
+    const payload = {
+      first_name: firstName,
+      last_name: lastName,
+      email: data.email,
+      phone: data.phone,
+      state: HEALLY_STATE.stateAbbr,
+      state_of_evaluation: HEALLY_STATE.stateAbbr,
+      timezone: HEALLY_STATE.timezone,
+      city: HEALLY_STATE.city,
+      extra_data: {
+        "contact[contact_type]": "Web Form",
+        "product[name]": "Eva",
+        utm_source: HEALLY_UTM_SOURCE,
+        qualifying_condition: data.qualifyingCondition,
+      },
+    };
+
+    const preset = base64UrlEncode(JSON.stringify(payload));
+
+    if (typeof window !== "undefined") {
+      if (Array.isArray(window.dataLayer)) {
+        window.dataLayer.push({
+          event: "heallyValidatedSubmit",
+          utm_source: HEALLY_UTM_SOURCE,
+          condition: data.qualifyingCondition,
+        });
+      }
+
+      window.location.assign(
+        `${HEALLY_PREFILL_BASE_URL}?redirect=sched&preset=${preset}&utm_source=${HEALLY_UTM_SOURCE}`,
+      );
     }
-    setSubmitted(true);
   };
 
   const onInvalid = () => {
@@ -116,44 +156,18 @@ export default function LeadForm() {
         className="absolute inset-x-0 top-0 h-[3px] bg-[var(--color-accent)]"
       />
 
-      {submitted ? (
-        <motion.div
-          key="success"
-          layout
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: reduce ? 0 : 0.5,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          className="flex flex-col items-center py-10 text-center"
-        >
-          <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-accent-soft)] text-[var(--color-accent)]">
-            <Check size={32} strokeWidth={2.5} />
-          </div>
-          <h3 className="heading-tertiary mb-3">
-            Thank you. Your request was received.
-          </h3>
-          <p className="text-body max-w-md text-[var(--color-muted)]">
-            Thank you. A Georgia-licensed physician will reach out within
-            one business hour to schedule your evaluation.
-          </p>
-        </motion.div>
-      ) : (
-        <motion.form
-          key="form"
-          layout
-          onSubmit={handleSubmit(onSubmit, onInvalid)}
-          noValidate
-          animate={
-            shake && !reduce
-              ? { x: [0, -8, 8, -6, 6, -3, 3, 0] }
-              : { x: 0 }
-          }
-          transition={{ duration: 0.45 }}
-          className="space-y-4"
-          aria-label="Begin your Georgia medical marijuana card evaluation"
-        >
+      <motion.form
+        key="form"
+        layout
+        onSubmit={handleSubmit(onSubmit, onInvalid)}
+        noValidate
+        animate={
+          shake && !reduce ? { x: [0, -8, 8, -6, 6, -3, 3, 0] } : { x: 0 }
+        }
+        transition={{ duration: 0.45 }}
+        className="space-y-4"
+        aria-label="Begin your Georgia medical marijuana card evaluation"
+      >
           <div>
             <h3 className="heading-tertiary mb-1">Begin Your Evaluation</h3>
             <p className="text-small text-[var(--color-muted)]">
@@ -278,19 +292,19 @@ export default function LeadForm() {
             </p>
           )}
 
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="btn-primary w-full"
-          >
-            {isSubmitting ? "Submitting…" : "Start My Evaluation"}
-          </button>
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          aria-busy={isSubmitting}
+          className="btn-primary w-full"
+        >
+          {isSubmitting ? "Redirecting…" : "Apply for Your MMJ Card"}
+        </button>
 
-          <p className="text-[0.7rem] uppercase tracking-[0.14em] text-[var(--color-muted)]">
-            HIPAA-Compliant • SSL Encrypted • Money-Back Guarantee
-          </p>
-        </motion.form>
-      )}
+        <p className="text-[0.7rem] uppercase tracking-[0.14em] text-[var(--color-muted)]">
+          HIPAA-Compliant • SSL Encrypted • Money-Back Guarantee
+        </p>
+      </motion.form>
     </motion.div>
   );
 }
