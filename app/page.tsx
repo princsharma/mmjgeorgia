@@ -23,9 +23,9 @@ const SpeakWithDoc = dynamic(
 );
 
 export const metadata: Metadata = buildMetadata({
-  title: "Apply Your Georgia Medical Marijuana Card Online",
+  title: "Apply Your Medical Marijuana Card Georgia | Trusted MMJ Card",
   description:
-    "Apply for your Georgia Medical Marijuana Card online with licensed doctors. HIPAA-secure telehealth, same-day evaluations, money-back guarantee if not approved.",
+    "Apply for a Georgia medical marijuana card online with expert guidance, licensed doctors, and a smooth patient approval process.",
   canonicalPath: "/",
 });
 

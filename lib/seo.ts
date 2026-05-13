@@ -4,10 +4,11 @@ export const SITE_CONFIG = {
   name: "Medical Marijuana Card Georgia",
   shortName: "MMJ Card Georgia",
   url: "https://medicalmarijuanacardgeorgia.com",
-  defaultTitle: "Georgia Medical Marijuana Card | Online Doctor Evaluations",
+  defaultTitle: "Apply Your Medical Marijuana Card Georgia | Trusted MMJ Card",
   defaultDescription:
-    "Apply for your Georgia Medical Marijuana Card online with licensed physicians. HIPAA-secure telehealth evaluations, same-day approvals, and a money-back guarantee if you are not approved.",
+    "Apply for a Georgia medical marijuana card online with expert guidance, licensed doctors, and a smooth patient approval process.",
   defaultKeywords: [
+    "Medical Marijuana Card Georgia",
     "Georgia medical marijuana card",
     "GA MMJ card",
     "Georgia medical cannabis",
