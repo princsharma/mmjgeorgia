@@ -5,11 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
 import { Check } from "lucide-react";
-import {
-  contactFormSchema,
-  QUALIFYING_CONDITIONS,
-  type ContactFormValues,
-} from "@/lib/formSchema";
+import { contactFormSchema, type ContactFormValues } from "@/lib/formSchema";
 import { sleep } from "@/lib/utils";
 
 export default function QueryForm() {
@@ -29,10 +25,7 @@ export default function QueryForm() {
   const onSubmit = async (data: ContactFormValues) => {
     await sleep(900);
     if (typeof window !== "undefined" && Array.isArray(window.dataLayer)) {
-      window.dataLayer.push({
-        event: "contact_form_submit",
-        condition: data.qualifyingCondition,
-      });
+      window.dataLayer.push({ event: "contact_form_submit" });
     }
     setSubmitted(true);
   };
@@ -116,52 +109,22 @@ export default function QueryForm() {
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
-        <div>
-          <label htmlFor="contact-phone" className="eyebrow mb-2 block">
-            Phone
-          </label>
-          <input
-            id="contact-phone"
-            type="tel"
-            autoComplete="tel"
-            className="w-full rounded-2xl border border-[var(--color-border)] bg-white px-4 py-3.5 text-sm text-[var(--color-heading)] focus:border-[var(--color-accent)] focus:outline-none"
-            {...register("phone")}
-          />
-          {errors.phone && (
-            <p className="mt-1.5 text-xs text-red-600" role="alert" aria-live="polite">
-              {errors.phone.message}
-            </p>
-          )}
-        </div>
-        <div>
-          <label
-            htmlFor="contact-condition"
-            className="eyebrow mb-2 block"
-          >
-            Qualifying Condition
-          </label>
-          <select
-            id="contact-condition"
-            defaultValue=""
-            className="w-full rounded-2xl border border-[var(--color-border)] bg-white px-4 py-3.5 text-sm text-[var(--color-heading)] focus:border-[var(--color-accent)] focus:outline-none"
-            {...register("qualifyingCondition")}
-          >
-            <option value="" disabled>
-              Select a condition
-            </option>
-            {QUALIFYING_CONDITIONS.map((c) => (
-              <option key={c} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-          {errors.qualifyingCondition && (
-            <p className="mt-1.5 text-xs text-red-600" role="alert" aria-live="polite">
-              {errors.qualifyingCondition.message}
-            </p>
-          )}
-        </div>
+      <div>
+        <label htmlFor="contact-phone" className="eyebrow mb-2 block">
+          Phone
+        </label>
+        <input
+          id="contact-phone"
+          type="tel"
+          autoComplete="tel"
+          className="w-full rounded-2xl border border-[var(--color-border)] bg-white px-4 py-3.5 text-sm text-[var(--color-heading)] focus:border-[var(--color-accent)] focus:outline-none"
+          {...register("phone")}
+        />
+        {errors.phone && (
+          <p className="mt-1.5 text-xs text-red-600" role="alert" aria-live="polite">
+            {errors.phone.message}
+          </p>
+        )}
       </div>
 
       <div>

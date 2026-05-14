@@ -4,18 +4,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, useReducedMotion } from "motion/react";
 import { useState, type ReactNode } from "react";
-import {
-  Mail,
-  Phone,
-  User,
-  ChevronDown,
-  ShieldCheck,
-} from "lucide-react";
-import {
-  leadFormSchema,
-  QUALIFYING_CONDITIONS,
-  type LeadFormValues,
-} from "@/lib/formSchema";
+import { Mail, Phone, User } from "lucide-react";
+import { leadFormSchema, type LeadFormValues } from "@/lib/formSchema";
 
 const HEALLY_STATE = {
   stateAbbr: "GA",
@@ -93,7 +83,6 @@ export default function LeadForm() {
       fullName: "",
       email: "",
       phone: "",
-      qualifyingCondition: undefined,
       consent: false,
     },
   });
@@ -116,7 +105,6 @@ export default function LeadForm() {
         "contact[contact_type]": "Web Form",
         "product[name]": "Eva",
         utm_source: HEALLY_UTM_SOURCE,
-        qualifying_condition: data.qualifyingCondition,
       },
     };
 
@@ -127,7 +115,6 @@ export default function LeadForm() {
         window.dataLayer.push({
           event: "heallyValidatedSubmit",
           utm_source: HEALLY_UTM_SOURCE,
-          condition: data.qualifyingCondition,
         });
       }
 
@@ -222,53 +209,6 @@ export default function LeadForm() {
               {...register("phone")}
             />
           </FieldShell>
-
-          <div className="relative">
-            <div
-              className={`relative flex items-center rounded-2xl border bg-white transition-all focus-within:border-[var(--color-accent)] ${
-                errors.qualifyingCondition
-                  ? "border-red-300"
-                  : "border-[var(--color-border)]"
-              }`}
-            >
-              <span
-                className="pl-4 text-[var(--color-muted)]"
-                aria-hidden="true"
-              >
-                <ShieldCheck size={18} />
-              </span>
-              <select
-                id="qualifyingCondition"
-                aria-label="Qualifying condition"
-                className="w-full appearance-none bg-transparent py-4 pl-3 pr-10 text-sm text-[var(--color-heading)] focus:outline-none"
-                defaultValue=""
-                {...register("qualifyingCondition")}
-              >
-                <option value="" disabled>
-                  Select Qualifying Condition
-                </option>
-                {QUALIFYING_CONDITIONS.map((c) => (
-                  <option key={c} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown
-                size={18}
-                className="pointer-events-none absolute right-4 text-[var(--color-muted)]"
-                aria-hidden="true"
-              />
-            </div>
-            {errors.qualifyingCondition && (
-              <p
-                className="mt-1.5 text-xs text-red-600"
-                role="alert"
-                aria-live="polite"
-              >
-                {errors.qualifyingCondition.message}
-              </p>
-            )}
-          </div>
 
           <label className="flex items-start gap-3 pt-1 text-xs text-[var(--color-muted)]">
             <input
