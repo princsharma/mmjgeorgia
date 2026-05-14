@@ -117,16 +117,16 @@ export default function Hero() {
               }}
               className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:gap-4"
             >
-              <a href="#apply-form" className="contents">
+              <a href="#apply" className="contents">
                 <MagneticButton
                   type="button"
                   className="btn-primary"
                   onClick={() =>
                     document
-                      .getElementById("apply-form")
+                      .getElementById("apply")
                       ?.scrollIntoView({
                         behavior: "smooth",
-                        block: "center",
+                        block: "start",
                       })
                   }
                 >
@@ -183,7 +183,7 @@ export default function Hero() {
               delay: reduce ? 0 : 0.3,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 scroll-mt-28"
           >
             <FormWrapper />
           </motion.div>
