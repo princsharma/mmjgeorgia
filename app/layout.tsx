@@ -9,6 +9,7 @@ import "@fontsource/inter/700.css";
 import HeaderServer from "@/components/header/headerServer";
 import Footer from "@/components/footer/footer";
 import BackToTop from "@/components/backtotop";
+import HashScrollFix from "@/components/HashScrollFix";
 import ScrollProgressBar from "@/components/motion/ScrollProgressBar";
 import RouteTransition from "@/components/motion/RouteTransition";
 import { buildMetadata, SITE_CONFIG } from "@/lib/seo";
@@ -80,6 +81,7 @@ export default function RootLayout({
           Skip to main content
         </a>
 
+        <HashScrollFix />
         <ScrollProgressBar />
         <HeaderServer />
 
