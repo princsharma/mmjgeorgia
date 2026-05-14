@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import { Star } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
@@ -155,6 +156,12 @@ export default function Reviews() {
             Drag to pan
           </p>
         </div>
+
+        <FadeIn className="mt-14 flex justify-center">
+          <Link href="/#apply" className="btn-primary">
+            Join Thousands of Georgia Patients
+          </Link>
+        </FadeIn>
       </div>
     </section>
   );

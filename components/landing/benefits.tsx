@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { Check } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
@@ -108,6 +109,9 @@ export default function Benefits() {
               through licensed physicians every year — from the first
               evaluation to annual renewal.
             </p>
+            <Link href="/#apply" className="btn-primary mt-8 inline-flex">
+              Apply for Your MMJ Card
+            </Link>
           </div>
         </FadeIn>
         <ul className="lg:col-span-7">

@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import {
   motion,
   useInView,
@@ -173,6 +175,13 @@ export default function Steps() {
             </div>
           ))}
         </div>
+
+        <FadeIn className="mt-16 flex justify-center">
+          <Link href="/#apply" className="btn-primary">
+            Start My Evaluation
+            <ArrowRight size={18} aria-hidden="true" />
+          </Link>
+        </FadeIn>
       </div>
     </section>
   );

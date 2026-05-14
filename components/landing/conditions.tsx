@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import StaggerGroup, {
   staggerItemVariants,
@@ -209,11 +210,14 @@ export default function Conditions() {
           ))}
         </StaggerGroup>
 
-        <FadeIn className="mx-auto mt-10 max-w-2xl text-center">
+        <FadeIn className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-5 text-center">
           <p className="text-small text-[var(--color-muted)]">
             Not sure if you qualify? Our team can review your medical history
             during a free consultation.
           </p>
+          <Link href="/#apply" className="btn-primary">
+            Check if I Qualify
+          </Link>
         </FadeIn>
       </div>
     </section>

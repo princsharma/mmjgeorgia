@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
@@ -102,6 +103,16 @@ export default function Faq() {
             />
           ))}
         </div>
+
+        <FadeIn className="mx-auto mt-12 flex max-w-2xl flex-col items-center gap-4 text-center">
+          <p className="text-small text-[var(--color-muted)]">
+            Still have questions? You can also start your evaluation and a
+            specialist will help along the way.
+          </p>
+          <Link href="/#apply" className="btn-primary">
+            Apply Now
+          </Link>
+        </FadeIn>
       </div>
     </section>
   );

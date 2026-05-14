@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useReducedMotion } from "motion/react";
 import StaggerGroup, {
   staggerItemVariants,
@@ -122,6 +123,15 @@ export default function Doctors() {
             </motion.article>
           ))}
         </StaggerGroup>
+
+        <FadeIn className="mt-14 flex flex-col items-center gap-3 text-center">
+          <p className="text-small text-[var(--color-muted)]">
+            Ready to meet your Georgia physician?
+          </p>
+          <Link href="/#apply" className="btn-primary">
+            Book My Evaluation
+          </Link>
+        </FadeIn>
       </div>
     </section>
   );
