@@ -88,7 +88,7 @@ const medicalOrganizationLd = {
   "@type": "MedicalOrganization",
   name: SITE_CONFIG.name,
   url: SITE_CONFIG.url,
-  logo: `${SITE_CONFIG.url}/assets/logo.svg`,
+  logo: `${SITE_CONFIG.url}/assets/georgia-logo.webp`,
   image: `${SITE_CONFIG.url}/assets/og-homepage.svg`,
   telephone: SITE_CONFIG.phoneTel,
   email: SITE_CONFIG.email,

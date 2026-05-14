@@ -30,11 +30,11 @@ export default function Footer() {
             className="inline-flex items-center"
           >
             <Image
-              src="/assets/logo.svg"
+              src="/assets/georgia-logo.webp"
               alt="Medical Marijuana Card Georgia logo"
-              width={220}
-              height={40}
-              className="h-10 w-auto"
+              width={208}
+              height={72}
+              className="h-12 w-auto"
             />
           </Link>
           <p className="mt-5 max-w-xs text-small text-[var(--color-muted)]">

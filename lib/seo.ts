@@ -113,9 +113,11 @@ export function buildMetadata({
           },
         },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon.ico",
-      apple: "/favicon.ico",
+      icon: [
+        { url: "/assets/georgia-icon.webp", type: "image/webp" },
+      ],
+      shortcut: "/assets/georgia-icon.webp",
+      apple: "/assets/georgia-icon.webp",
     },
     verification: {
       google: SITE_CONFIG.googleVerification,

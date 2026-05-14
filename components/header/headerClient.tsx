@@ -66,12 +66,12 @@ export default function HeaderClient({ navLinks }: HeaderClientProps) {
           className="flex items-center gap-2 focus-ring"
         >
           <Image
-            src="/assets/logo.svg"
+            src="/assets/georgia-logo.webp"
             alt=""
-            width={196}
-            height={36}
+            width={208}
+            height={72}
             priority
-            className="h-9 w-auto"
+            className="h-10 w-auto md:h-12"
           />
           <span className="sr-only">Medical Marijuana Card Georgia</span>
         </Link>
