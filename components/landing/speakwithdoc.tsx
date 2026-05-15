@@ -23,7 +23,6 @@ export default function SpeakWithDoc() {
           alt="Decorative emerald accent shape"
           title="Decorative accent"
           fill
-          role="presentation"
           aria-hidden="true"
         />
       </div>
@@ -36,7 +35,6 @@ export default function SpeakWithDoc() {
           alt="Decorative emerald accent shape"
           title="Decorative accent"
           fill
-          role="presentation"
           aria-hidden="true"
         />
       </div>
@@ -67,20 +65,15 @@ export default function SpeakWithDoc() {
 
         <FadeIn className="lg:col-span-5" delay={0.15}>
           <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
-            <a
+            <MagneticButton
               href={`tel:${SITE_CONFIG.phoneTel}`}
               title="Call our Georgia Medical Marijuana Card team"
-              className="contents"
+              className="btn-primary justify-center gap-3 px-7 py-4 text-lg"
+              aria-label={`Call ${SITE_CONFIG.phone}`}
             >
-              <MagneticButton
-                type="button"
-                className="btn-primary justify-center gap-3 px-7 py-4 text-lg"
-                aria-label={`Call ${SITE_CONFIG.phone}`}
-              >
-                <Phone size={20} strokeWidth={2.4} aria-hidden="true" />
-                <span className="tabular-nums">{SITE_CONFIG.phone}</span>
-              </MagneticButton>
-            </a>
+              <Phone size={20} strokeWidth={2.4} aria-hidden="true" />
+              <span className="tabular-nums">{SITE_CONFIG.phone}</span>
+            </MagneticButton>
             <a
               href="/contact-us"
               title="Contact our Georgia patient care team"

@@ -31,7 +31,6 @@ export default function StartJourney() {
             title="Decorative accent"
             fill
             aria-hidden="true"
-            role="presentation"
             className="opacity-70"
           />
         </div>

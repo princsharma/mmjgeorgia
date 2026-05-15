@@ -54,6 +54,7 @@ const REVIEWS: Review[] = [
 function Stars({ rating = 5 }: { rating?: number }) {
   return (
     <div
+      role="img"
       className="flex items-center gap-0.5 text-[var(--color-accent)]"
       aria-label={`${rating} out of 5 stars`}
     >

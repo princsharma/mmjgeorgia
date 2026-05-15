@@ -38,7 +38,6 @@ export default function ExpertCare() {
           alt="Decorative emerald accent shape"
           title="Decorative accent"
           fill
-          role="presentation"
           aria-hidden="true"
         />
       </motion.div>

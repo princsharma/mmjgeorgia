@@ -32,7 +32,6 @@ export default function Trust() {
             <div
               key={p.name}
               className="flex h-14 items-center px-2 grayscale opacity-70 transition-opacity hover:opacity-100"
-              aria-label={p.name}
             >
               <Image
                 src={p.src}

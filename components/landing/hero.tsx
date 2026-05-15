@@ -43,7 +43,6 @@ export default function Hero() {
             title="Decorative accent"
             fill
             priority
-            role="presentation"
             aria-hidden="true"
             className="opacity-[0.08]"
           />
@@ -60,7 +59,6 @@ export default function Hero() {
             alt="Decorative emerald accent shape"
             title="Decorative accent"
             fill
-            role="presentation"
             aria-hidden="true"
             className="opacity-[0.08]"
           />
@@ -80,10 +78,7 @@ export default function Hero() {
             }}
             className="lg:col-span-7"
           >
-            <span
-              className="pill mb-7"
-              aria-label="Serving Georgia, apply online"
-            >
+            <span className="pill mb-7">
               <span
                 className="inline-block h-2 w-2 rounded-full bg-[var(--color-accent)]"
                 aria-hidden="true"
@@ -119,27 +114,22 @@ export default function Hero() {
               }}
               className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:gap-4"
             >
-              <a
+              <MagneticButton
                 href="#apply"
                 title="Start your Georgia Medical Marijuana Card application"
-                className="contents"
+                className="btn-primary"
+                onClick={() =>
+                  document
+                    .getElementById("apply")
+                    ?.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    })
+                }
               >
-                <MagneticButton
-                  type="button"
-                  className="btn-primary"
-                  onClick={() =>
-                    document
-                      .getElementById("apply")
-                      ?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      })
-                  }
-                >
-                  Start My Evaluation
-                  <ArrowRight size={18} aria-hidden="true" />
-                </MagneticButton>
-              </a>
+                Start My Evaluation
+                <ArrowRight size={18} aria-hidden="true" />
+              </MagneticButton>
               <a
                 href="#how-it-works"
                 title="How the Georgia Medical Marijuana Card process works"
