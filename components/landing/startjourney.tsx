@@ -27,7 +27,8 @@ export default function StartJourney() {
         <div className="blob-drift-b h-full w-full">
           <Image
             src="/assets/hero/blob-emerald-2.svg"
-            alt=""
+            alt="Decorative emerald accent shape"
+            title="Decorative accent"
             fill
             aria-hidden="true"
             role="presentation"

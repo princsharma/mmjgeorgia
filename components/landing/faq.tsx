@@ -109,7 +109,11 @@ export default function Faq() {
             Still have questions? You can also start your evaluation and a
             specialist will help along the way.
           </p>
-          <Link href="/#apply" className="btn-primary">
+          <Link
+            href="/#apply"
+            title="Start your Georgia Medical Marijuana Card application"
+            className="btn-primary"
+          >
             Apply Now
           </Link>
         </FadeIn>

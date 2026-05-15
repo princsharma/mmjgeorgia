@@ -35,7 +35,8 @@ export default function ExpertCare() {
       >
         <Image
           src="/assets/hero/blob-emerald-1.svg"
-          alt=""
+          alt="Decorative emerald accent shape"
+          title="Decorative accent"
           fill
           role="presentation"
           aria-hidden="true"
@@ -114,6 +115,7 @@ export default function ExpertCare() {
               <Image
                 src="/assets/doctors/doc-1.svg"
                 alt="Portrait of Dr. Aisha Patel, Georgia-licensed medical cannabis physician"
+                title="Georgia-licensed cannabis physician"
                 fill
                 sizes="(max-width: 768px) 18rem, 24rem"
                 className="object-cover"

@@ -74,7 +74,11 @@ export default function HeroAnimated() {
               Start My Evaluation
               <ArrowRight size={18} aria-hidden="true" />
             </MagneticButton>
-            <a href="#how-it-works" className="btn-ghost">
+            <a
+              href="#how-it-works"
+              title="How the Georgia Medical Marijuana Card process works"
+              className="btn-ghost"
+            >
               See How It Works
               <ChevronDown size={18} aria-hidden="true" />
             </a>

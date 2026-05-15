@@ -177,7 +177,11 @@ export default function Steps() {
         </div>
 
         <FadeIn className="mt-16 flex justify-center">
-          <Link href="/#apply" className="btn-primary">
+          <Link
+            href="/#apply"
+            title="Start your Georgia Medical Marijuana Card evaluation"
+            className="btn-primary"
+          >
             Start My Evaluation
             <ArrowRight size={18} aria-hidden="true" />
           </Link>

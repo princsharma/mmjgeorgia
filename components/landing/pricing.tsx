@@ -81,7 +81,11 @@ export default function Pricing() {
                     One-time evaluation • Renewal $99
                   </p>
 
-                  <a href="#apply" className="contents">
+                  <a
+                    href="#apply"
+                    title="Begin your Georgia Medical Marijuana Card application"
+                    className="contents"
+                  >
                     <MagneticButton type="button" className="btn-primary mt-6 w-full">
                       Begin Application
                     </MagneticButton>

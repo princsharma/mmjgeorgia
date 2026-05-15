@@ -215,7 +215,11 @@ export default function Conditions() {
             Not sure if you qualify? Our team can review your medical history
             during a free consultation.
           </p>
-          <Link href="/#apply" className="btn-primary">
+          <Link
+            href="/#apply"
+            title="Check Georgia Medical Marijuana Card eligibility"
+            className="btn-primary"
+          >
             Check if I Qualify
           </Link>
         </FadeIn>

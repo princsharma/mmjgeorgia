@@ -20,7 +20,8 @@ export default function SpeakWithDoc() {
       >
         <Image
           src="/assets/hero/blob-emerald-2.svg"
-          alt=""
+          alt="Decorative emerald accent shape"
+          title="Decorative accent"
           fill
           role="presentation"
           aria-hidden="true"
@@ -32,7 +33,8 @@ export default function SpeakWithDoc() {
       >
         <Image
           src="/assets/hero/blob-emerald-1.svg"
-          alt=""
+          alt="Decorative emerald accent shape"
+          title="Decorative accent"
           fill
           role="presentation"
           aria-hidden="true"
@@ -65,7 +67,11 @@ export default function SpeakWithDoc() {
 
         <FadeIn className="lg:col-span-5" delay={0.15}>
           <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
-            <a href={`tel:${SITE_CONFIG.phoneTel}`} className="contents">
+            <a
+              href={`tel:${SITE_CONFIG.phoneTel}`}
+              title="Call our Georgia Medical Marijuana Card team"
+              className="contents"
+            >
               <MagneticButton
                 type="button"
                 className="btn-primary justify-center gap-3 px-7 py-4 text-lg"
@@ -77,6 +83,7 @@ export default function SpeakWithDoc() {
             </a>
             <a
               href="/contact-us"
+              title="Contact our Georgia patient care team"
               className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-white/10"
             >
               Or send us a message

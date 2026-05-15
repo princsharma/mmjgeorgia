@@ -36,7 +36,8 @@ export default function Trust() {
             >
               <Image
                 src={p.src}
-                alt={p.name}
+                alt={`${p.name} — Georgia Medical Marijuana Card trust partner`}
+                title={p.name}
                 width={170}
                 height={48}
                 className="h-12 w-auto"

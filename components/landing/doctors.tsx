@@ -92,7 +92,8 @@ export default function Doctors() {
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-[var(--color-surface-tint)]">
                 <Image
                   src={doc.photo}
-                  alt={`Portrait of ${doc.name}, ${doc.specialty}`}
+                  alt={`Portrait of ${doc.name}, Georgia-licensed medical cannabis physician — ${doc.specialty}`}
+                  title={`${doc.name}, Georgia-licensed physician`}
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover"
@@ -128,7 +129,11 @@ export default function Doctors() {
           <p className="text-small text-[var(--color-muted)]">
             Ready to meet your Georgia physician?
           </p>
-          <Link href="/#apply" className="btn-primary">
+          <Link
+            href="/#apply"
+            title="Book your Georgia Medical Marijuana Card evaluation"
+            className="btn-primary"
+          >
             Book My Evaluation
           </Link>
         </FadeIn>

@@ -11,6 +11,7 @@ const CONTACT_METHODS = [
     label: "Call us",
     value: SITE_CONFIG.phone,
     href: `tel:${SITE_CONFIG.phoneTel}`,
+    linkTitle: "Call our Georgia Medical Marijuana Card team",
     note: "Mon–Sat, 8am–8pm ET",
   },
   {
@@ -18,6 +19,7 @@ const CONTACT_METHODS = [
     label: "Email us",
     value: SITE_CONFIG.email,
     href: `mailto:${SITE_CONFIG.email}`,
+    linkTitle: "Email our Georgia Medical Marijuana Card team",
     note: "Replies within one business hour",
   },
   {
@@ -79,6 +81,7 @@ export default function ContactPageContent() {
                 {m.href ? (
                   <a
                     href={m.href}
+                    title={m.linkTitle}
                     className="heading-tertiary text-[var(--color-heading)] hover:text-[var(--color-accent)]"
                   >
                     {m.value}

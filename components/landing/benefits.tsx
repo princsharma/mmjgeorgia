@@ -109,7 +109,11 @@ export default function Benefits() {
               through licensed physicians every year — from the first
               evaluation to annual renewal.
             </p>
-            <Link href="/#apply" className="btn-primary mt-8 inline-flex">
+            <Link
+              href="/#apply"
+              title="Apply for your Georgia Medical Marijuana Card"
+              className="btn-primary mt-8 inline-flex"
+            >
               Apply for Your MMJ Card
             </Link>
           </div>

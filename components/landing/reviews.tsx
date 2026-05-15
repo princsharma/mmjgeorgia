@@ -158,7 +158,11 @@ export default function Reviews() {
         </div>
 
         <FadeIn className="mt-14 flex justify-center">
-          <Link href="/#apply" className="btn-primary">
+          <Link
+            href="/#apply"
+            title="Apply for your Georgia Medical Marijuana Card"
+            className="btn-primary"
+          >
             Join Thousands of Georgia Patients
           </Link>
         </FadeIn>

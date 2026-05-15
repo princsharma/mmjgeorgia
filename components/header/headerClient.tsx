@@ -63,11 +63,13 @@ export default function HeaderClient({ navLinks }: HeaderClientProps) {
         <Link
           href="/"
           aria-label="Medical Marijuana Card Georgia — home"
+          title="Medical Marijuana Card Georgia home"
           className="flex items-center gap-2 focus-ring"
         >
           <Image
             src="/assets/georgia-logo.webp"
-            alt=""
+            alt="Medical Marijuana Card Georgia logo"
+            title="Medical Marijuana Card Georgia"
             width={208}
             height={72}
             priority
@@ -90,6 +92,7 @@ export default function HeaderClient({ navLinks }: HeaderClientProps) {
                   key={link.href}
                   href={link.href}
                   aria-current={isActive ? "page" : undefined}
+                  title={link.label}
                   onMouseEnter={() => setHovered(link.href)}
                   className="relative inline-flex items-center px-3.5 py-2 text-sm font-medium text-[var(--color-heading)] transition-colors hover:text-[var(--color-accent)]"
                 >
@@ -112,7 +115,11 @@ export default function HeaderClient({ navLinks }: HeaderClientProps) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Link href="/#apply" className="btn-primary hidden md:inline-flex">
+          <Link
+            href="/#apply"
+            title="Start your Georgia Medical Marijuana Card application"
+            className="btn-primary hidden md:inline-flex"
+          >
             Apply Now
           </Link>
           <button
@@ -190,6 +197,7 @@ export default function HeaderClient({ navLinks }: HeaderClientProps) {
                 >
                   <Link
                     href={link.href}
+                    title={link.label}
                     onClick={() => setMenuOpen(false)}
                     className="flex items-center justify-between border-b border-[var(--color-border)] py-4 text-xl font-medium text-[var(--color-heading)] hover:text-[var(--color-accent)]"
                   >
@@ -200,6 +208,7 @@ export default function HeaderClient({ navLinks }: HeaderClientProps) {
               ))}
               <Link
                 href="/#apply"
+                title="Start your Georgia Medical Marijuana Card application"
                 onClick={() => setMenuOpen(false)}
                 className="btn-primary mt-6 w-full"
               >

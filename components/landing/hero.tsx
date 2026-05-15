@@ -39,7 +39,8 @@ export default function Hero() {
         <div className="blob-drift-a h-full w-full">
           <Image
             src="/assets/hero/blob-emerald-1.svg"
-            alt=""
+            alt="Decorative emerald accent shape"
+            title="Decorative accent"
             fill
             priority
             role="presentation"
@@ -56,7 +57,8 @@ export default function Hero() {
         <div className="blob-drift-b h-full w-full">
           <Image
             src="/assets/hero/blob-emerald-2.svg"
-            alt=""
+            alt="Decorative emerald accent shape"
+            title="Decorative accent"
             fill
             role="presentation"
             aria-hidden="true"
@@ -117,7 +119,11 @@ export default function Hero() {
               }}
               className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:gap-4"
             >
-              <a href="#apply" className="contents">
+              <a
+                href="#apply"
+                title="Start your Georgia Medical Marijuana Card application"
+                className="contents"
+              >
                 <MagneticButton
                   type="button"
                   className="btn-primary"
@@ -136,6 +142,7 @@ export default function Hero() {
               </a>
               <a
                 href="#how-it-works"
+                title="How the Georgia Medical Marijuana Card process works"
                 className="btn-ghost"
                 aria-label="See how it works"
               >

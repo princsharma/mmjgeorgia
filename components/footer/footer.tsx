@@ -3,17 +3,49 @@ import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/seo";
 
 const QUICK_LINKS = [
-  { href: "/#how-it-works", label: "How It Works" },
-  { href: "/#conditions", label: "Qualifying Conditions" },
-  { href: "/#pricing", label: "Pricing" },
-  { href: "/#faq", label: "Frequently Asked Questions" },
+  {
+    href: "/#how-it-works",
+    label: "How It Works",
+    title: "How the Georgia Medical Marijuana Card process works",
+  },
+  {
+    href: "/#conditions",
+    label: "Qualifying Conditions",
+    title: "Georgia Medical Marijuana Card qualifying conditions",
+  },
+  {
+    href: "/#pricing",
+    label: "Pricing",
+    title: "Georgia Medical Marijuana Card pricing",
+  },
+  {
+    href: "/#faq",
+    label: "Frequently Asked Questions",
+    title: "Frequently asked questions",
+  },
 ];
 
 const RESOURCES = [
-  { href: "/contact-us", label: "Contact Us" },
-  { href: "/#doctors", label: "Meet the Doctors" },
-  { href: "/#reviews", label: "Patient Reviews" },
-  { href: "/#apply", label: "Begin Application" },
+  {
+    href: "/contact-us",
+    label: "Contact Us",
+    title: "Contact our Georgia patient care team",
+  },
+  {
+    href: "/#doctors",
+    label: "Meet the Doctors",
+    title: "Meet our Georgia-licensed cannabis doctors",
+  },
+  {
+    href: "/#reviews",
+    label: "Patient Reviews",
+    title: "Georgia Medical Marijuana Card patient reviews",
+  },
+  {
+    href: "/#apply",
+    label: "Begin Application",
+    title: "Start your Georgia Medical Marijuana Card application",
+  },
 ];
 
 export default function Footer() {
@@ -27,11 +59,13 @@ export default function Footer() {
           <Link
             href="/"
             aria-label="Medical Marijuana Card Georgia — home"
+            title="Medical Marijuana Card Georgia home"
             className="inline-flex items-center"
           >
             <Image
               src="/assets/georgia-logo.webp"
               alt="Medical Marijuana Card Georgia logo"
+              title="Medical Marijuana Card Georgia"
               width={208}
               height={72}
               className="h-12 w-auto"
@@ -57,6 +91,7 @@ export default function Footer() {
               <li key={l.href}>
                 <Link
                   href={l.href}
+                  title={l.title}
                   className="text-[var(--color-body)] transition-colors hover:text-[var(--color-accent)]"
                 >
                   {l.label}
@@ -73,6 +108,7 @@ export default function Footer() {
               <li key={l.href}>
                 <Link
                   href={l.href}
+                  title={l.title}
                   className="text-[var(--color-body)] transition-colors hover:text-[var(--color-accent)]"
                 >
                   {l.label}
@@ -88,6 +124,7 @@ export default function Footer() {
             <li>
               <a
                 href={`tel:${SITE_CONFIG.phoneTel}`}
+                title="Call our Georgia Medical Marijuana Card team"
                 className="font-semibold text-[var(--color-heading)] hover:text-[var(--color-accent)] tabular-nums"
               >
                 {SITE_CONFIG.phone}
@@ -96,6 +133,7 @@ export default function Footer() {
             <li>
               <a
                 href={`mailto:${SITE_CONFIG.email}`}
+                title="Email our Georgia Medical Marijuana Card team"
                 className="hover:text-[var(--color-accent)]"
               >
                 {SITE_CONFIG.email}
@@ -118,7 +156,8 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-xs text-[var(--color-muted)]">
             <Image
               src="/assets/georgia-silhouette.svg"
-              alt=""
+              alt="Georgia state silhouette"
+              title="Serving Georgia"
               width={28}
               height={28}
               aria-hidden="true"
