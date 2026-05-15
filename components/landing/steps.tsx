@@ -83,10 +83,10 @@ export default function Steps() {
     target: trackRef,
     offset: ["start 0.8", "end 0.4"],
   });
-  const pathLength = useTransform(
+  const drawProgress = useTransform(
     scrollYProgress,
     [0, 1],
-    reduce ? [1, 1] : [0, 1],
+    reduce ? [1200, 1200] : [0, 1200],
   );
 
   return (
@@ -122,12 +122,11 @@ export default function Steps() {
             <motion.line
               x1="0"
               y1="2"
-              x2="1200"
+              x2={drawProgress}
               y2="2"
               stroke="var(--color-accent)"
               strokeWidth="2"
               strokeDasharray="6 6"
-              style={{ pathLength }}
             />
           </svg>
 
@@ -141,11 +140,10 @@ export default function Steps() {
               x1="2"
               y1="0"
               x2="2"
-              y2="1200"
+              y2={drawProgress}
               stroke="var(--color-accent)"
               strokeWidth="2"
               strokeDasharray="6 6"
-              style={{ pathLength }}
             />
           </svg>
 
